@@ -1,0 +1,104 @@
+<!-- This is a code comment - this is a multiline document -->
+<!-- This doctype tag tells the browser that this is an html 5 webpage (current version) -->
+<!DOCTYPE html>
+<!-- the opening html tag should be the 2nd line of code on a typical page -->
+<html lang="en">
+    <!-- the head section is one of the 2 sections within an html page; the info here is for browsers and search engines -->
+    <head>
+        <!-- this meta tag tells the browser that pretty much any character from any language may be on our webpage -->
+        <meta charset="UTF-8">
+        <!-- this meta tag should be on each page,  otherwise the webpage will look odd on a mobile device -->
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <!-- the title is what appears in the browser tab - it should be short, sweet and descriptive -->
+        <title>HTML Basics</title>
+
+        <link rel="stylesheet" href="main.css">
+        
+        <!-- Embedded CSS -->
+         <style>
+            body{
+                background-color: rgb(255, 150, 255);
+                color: rgb(109, 1, 100);
+            }
+         </style>
+    </head>
+
+    <!-- all of the content - text, images, videos, audio - goes here in the body section -->
+    <body>
+
+        <header>
+            <!-- this is our top level heading tag; h1 tells the screen readers what the page is about - we should have 1 and only 1 h1 tag on our webpage -->
+            <h1 style="color:blueviolet">CSC104 HTML Basics Page</h1>
+        </header>
+
+        <!-- core content -->
+        <main>
+            <!-- p is the paragraph tag - by default, it will spacing around the outside of the text -->
+            <p>
+                HTML stands for Hypertext Markup Language. HTML provides the structure of the webpage by marking up the text. HTML does not have many rules, but does have some best practices, such as only 1 h1 tag on a page.
+            </p>
+
+            <!-- h2 is the 2nd level heading, good choice for titles of sub-sections on the page -->
+            <h2>History of HTML</h2>
+
+            <!-- ul is unordered list - by default it will show bullet points next to items in the list -->
+             <ul>
+                <!-- li is list item - each li will start with a bullet point by default -->
+                 <li>HTML 1.0 - developed in early 1990's</li>
+                 <li>HTML 2.0 - released in 1995</li>
+                 <li>HTML 3.2 - released in 1997</li>
+                 <li>HTML 4.01 - released in 1999</li>
+                 <li>HTML 5 released in 2014 (current version) - living standard</li>
+             </ul>
+
+             <!-- add an image tag -->
+              <img src="vl0lxeqdh8g41.webp" alt="HTML versus CSS">
+
+              <h2>Cascading Style Systems (CSS)</h2>
+
+              <p>CSS is a language that is used to make HTML look better. CSS can control the layout, colors, font - any visual element on the page changed from the default look using CSS</p>
+
+              <!-- 3rd level heading -->
+              <h3>History of CSS</h3>
+
+              <ul>
+                <li>CSS1 released in 1996</li>
+                <li>CSS2 released in 1998</li>
+                <li>CSS3 released in 2011 - this is the current version - living standard</li>
+              </ul>
+
+              <h3>Basic structure</h3>
+<pre>
+    selector{
+        property: value;
+    }
+</pre>
+
+    <h3>Selector optio0ns</h3>
+        <ul>
+            <li>HTML element</li>
+            <li>Custom class - starts with a .</li>
+            <li>Id of an HTML element - start with a #</li>
+        </ul>
+
+    <h3>Ways to use CSS</h3>
+
+        <ul>
+            <li>External CSS - this is a seperate file - best practice</li>
+            <li>Embedded CSS - the CSS styles are on a single page</li>
+            <li>Inline CSS - the styles are created on each HTML element</li>
+        </ul>
+        </main>
+
+        <!-- footer - at the bottom - legal type information, sitemap -->
+        <footer>
+
+        </footer>
+
+        <!-- division of content -->
+        <div></div>
+
+        <!-- this closing body tag should be the 2nd to last line of the webpage -->
+    </body>
+<!-- the very last line of the .html pages should be the closing html tag -->
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root | Factions</title>
+</head>
+<style>
+    body{
+        background-color: rgb();
+    }
+</style>
+<body id="body">
+    <!-- Buttons to go to next and previous factions -->
+    <button onclick="factionNext();">Next</button>
+    <button onclick="factionPrevious();">Previous</button>
+    
+    <script>
+        // Faction colors, for bg
+        let arrColorRed = [205,58,96,161,243,91,146,144,225,125];
+        let arrColorGreen = [111,102,173,161,233,195,59,92,34,125];
+        let arrColorBlue = [50,165,79,161,48,186,49,164,50,125];
+        let factionCurrent = 9;
+        let goal = factionCurrent
+        
+
+        // if the array number is a decimal, multiply the floored color of the list to 1-"the decimal" and the ceiled color multiplied by the decimal (makes a smooth fade color to color) 
+        function adjustFactionColor(array){
+            factionCurrent = 10*Math.ceil(Math.abs(Math.min(0,factionCurrent)))+factionCurrent%10
+            return ((1-(factionCurrent%1))*array[Math.floor(factionCurrent%10)]+(factionCurrent%1)*array[Math.ceil(factionCurrent%10)%10]);
+        }
+        
+        function changeBGC(){
+            // Set current background to this color
+            let bgColorRed = adjustFactionColor(arrColorRed);
+            let bgColorGreen = adjustFactionColor(arrColorGreen);
+            let bgColorBlue = adjustFactionColor(arrColorBlue);
+            // change the body background color
+            document.getElementById("body").style.backgroundColor = 'rgb('+bgColorRed+','+bgColorGreen+','+bgColorBlue+')';
+        }
+        changeBGC();
+        
+        function factionNext(){
+            goal = Math.round((goal + 1)%9.9999)
+            console.log(goal)
+        }
+        function factionPrevious(){
+            if(goal-1==-1){goal=9,factionCurrent+=10}
+            else{goal-=1}
+        }
+
+        setInterval(function(){
+            if(Math.abs(goal - factionCurrent) <= 0.01){
+                factionCurrent = goal
+                
+            }
+            else{if((Math.abs(goal - factionCurrent) >= 9)){
+                factionCurrent = factionCurrent - 10
+                
+            }}
+            factionCurrent = 0.9*factionCurrent + 0.1 * goal
+                changeBGC();
+        },1000/60)
+    </script>
+</body>
+</html>

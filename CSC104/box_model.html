@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box model example</title>
+    <!-- Embedded styles: TODO: move to a CSS file -->
+     <style>
+        /* this is a custom class that will just add a border around the outer div */
+        .outerEdge{
+            border: 5px solid green;
+        }
+        
+        /* 2 types of elements:
+            block - take up the whole row (page)
+            inline - the items fill in next to each other across the row (page) div is a block element */
+
+        /* these styles apply to the inner div so we can see how the box model works */
+        .box{
+            width: 200px;
+            height: 100px; 
+
+            /* padding - space around the content */
+            /* padding: 20px on each side */
+            padding: 20px;
+
+            padding-top: 100px;
+            padding-right: 30px;
+            padding-bottom: 40px;
+            padding-left: 80px;
+
+            /* setting the padding from top, right, bottom, left */
+            padding: 40px 30px 80px 100px; 
+
+            /* border for the inner div */
+            border: 10px solid blue;
+
+            /* margin is the space outside of the border */
+            /* margin 20px adds 20px evenly to each side */
+            margin: 20px;
+
+            /*  */
+            margin-top: 100px;
+            margin-right: 30px;
+            margin-bottom: 50px;
+            margin-left: 100px;
+
+            /* setting of the margin from top, right, bottom, left */
+            margin: 50px 10px 80px 20px;
+        }
+     </style>
+</head>
+<body>
+    <!-- All of the text, images, whatever we want to show the user should be in the body section -->
+
+    <!-- header is where you find the logo, menu, and page title -->
+     <header>
+        <!-- h1 is the top level heading -->
+         <h1>Box Model Example</h1>
+     </header>
+
+     <main>
+        <!-- This outer div will just have a border so we can see the spacing of the inner div -->
+        <div class="outerEdge">
+            
+            <div class="box">This is my inner Div content</div>
+        </div>
+
+        <ul>
+            <li>Content: the innermost area of the HTML element where the text and/or images appear</li>
+            <li>Padding: the space between the content and the border</li>
+            <li>Border: the edge around the padding and the content</li>
+            <li>Margin: the outermost space of the element that separates the element from other elements</li>
+        </ul>
+     </main>
+    
+</body>
+</html>

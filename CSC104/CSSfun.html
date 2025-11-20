@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fun!</title>
+    
+    <!-- Embedded CSS styles: TODO: move the styles to an external CSS file -->
+    <style>
+        body{
+            background-color:lightcoral;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        header{
+            /* background-image: url('312520_1741.jpg');
+            background-position: center; 
+            background-size:35%; */
+            background: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 56, 179));
+            color: rgb(0,0,0);
+            padding: 10px;
+            text-align: center;
+        }
+
+        button{
+            background: linear-gradient(to right, rgb(255, 205, 205), rgb(255, 130, 130));
+            color: black;
+        }
+
+        button:hover{
+            background: linear-gradient(to right, rgb(255, 101, 101), rgb(255, 102, 102));
+            color:rgb(53, 53, 53);
+        }
+
+        .container{
+            display:flex;
+            justify-content: space-around;
+            /* the default direction is row - so our columns will go horizontally across the screen */
+            flex-direction: row;
+        }
+
+        /* media query so that we can have different look on smaller screen size */
+        @media (max-width: 768px){
+            .container{
+                /* this will allow our columns to stack vertically on the smaller screen size */
+                flex-direction: column;
+            }
+
+            .column{
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my CSS Demo!</h1>
+        <button>cool awesome button</button>
+    </header>
+
+    <main>
+        <div class="container">
+            <article class="column">
+                <h2>Gradients</h2>
+                <div class="gradient-box"></div>
+            </article>
+
+            <article class="column">
+                <h2>Responsive Design</h2>
+                <p>Resize the page to see how it works</p>
+            </article>
+        </div>
+    </main>
+</body>
+</html>
