@@ -14,20 +14,20 @@
     <!-- Buttons to go to next and previous factions -->
     <button onclick="factionNext();">Next</button>
     <button onclick="factionPrevious();">Previous</button>
-    
+    <div id="divAudio"></div>
     <script>
         // Faction colors, for bg
         let arrColorRed = [205,58,96,161,243,91,146,144,225,125];
         let arrColorGreen = [111,102,173,161,233,195,59,92,34,125];
         let arrColorBlue = [50,165,79,161,48,186,49,164,50,125];
-        let factionCurrent = 9;
+        let factionCurrent = 0;
         let goal = factionCurrent
         
-
+        changeBGC();
         // if the array number is a decimal, multiply the floored color of the list to 1-"the decimal" and the ceiled color multiplied by the decimal (makes a smooth fade color to color) 
         function adjustFactionColor(array){
-            factionCurrent = 10*Math.ceil(Math.abs(Math.min(0,factionCurrent)))+factionCurrent%10
-            return ((1-(factionCurrent%1))*array[Math.floor(factionCurrent%10)]+(factionCurrent%1)*array[Math.ceil(factionCurrent%10)%10]);
+            number = 10*Math.ceil(Math.abs(Math.min(0,factionCurrent)))+factionCurrent%10
+            return ((1-(number%1))*array[Math.floor(number%10)]+(number%1)*array[Math.ceil(number%10)%10]);
         }
         
         function changeBGC(){
@@ -38,29 +38,55 @@
             // change the body background color
             document.getElementById("body").style.backgroundColor = 'rgb('+bgColorRed+','+bgColorGreen+','+bgColorBlue+')';
         }
-        changeBGC();
-        
+
+        let audioElem = document.createElement("audio");
+            audioElem.setAttribute("id", "myAudio");
+            audioElem.setAttribute("src", "Popsoundeffect4-[AudioTrimmer.com].mp3");
+            document.getElementById("divAudio").appendChild(audioElem);
+        function buttonSound(){
+            document.getElementById("myAudio").play();
+        }
+
+        // function to play a pop sound (right now it's a pop, but I'll probably change it to fit what I want)
+        // Faction next, previous, and target set the current "goal" faction of a specific number
         function factionNext(){
-            goal = Math.round((goal + 1)%9.9999)
-            console.log(goal)
+            if(goal==9){
+                goal = 0;
+                factionCurrent-=10;
+            }
+            else{
+                goal+=1;
+            }
         }
         function factionPrevious(){
-            if(goal-1==-1){goal=9,factionCurrent+=10}
-            else{goal-=1}
+            if(goal==0){
+                goal=9;
+                factionCurrent=factionCurrent+10;
+            }
+            else{
+                goal-=1;
+            }
+        }
+        function factionTarget(number){
+            goal=number
+            buttonSound()
         }
 
         setInterval(function(){
-            if(Math.abs(goal - factionCurrent) <= 0.01){
+            if(Math.abs(goal - factionCurrent) <= 0.05){
                 factionCurrent = goal
-                
             }
-            else{if((Math.abs(goal - factionCurrent) >= 9)){
-                factionCurrent = factionCurrent - 10
-                
-            }}
-            factionCurrent = 0.9*factionCurrent + 0.1 * goal
-                changeBGC();
+            else{
+                factionCurrent = 0.9*factionCurrent + 0.1 * goal
+            }
+            changeBGC();
         },1000/60)
     </script>
+    <main>
+        <img src="SymbolMarquise.jpg" onclick="factionTarget(0)" width="50px">
+        <img src="SymbolEyrie.jpg" onclick="factionTarget(1)" width="50px">
+        <img src="SymbolAlliance.jpg" onclick="factionTarget(2)" width="50px">
+        <img src="SymbolVB.jpg" onclick="factionTarget(3)" width="50px">
+    </main>
 </body>
 </html>
