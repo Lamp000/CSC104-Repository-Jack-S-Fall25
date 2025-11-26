@@ -1,0 +1,39 @@
+body{
+    position:absolute;
+    height:100%;
+    margin:0;
+    padding:0;
+    width:100%;
+    overflow-x:hidden;
+}
+
+.ButtonClass{
+    position:absolute;
+    border-radius: 30%;
+    padding:0.3%;
+    margin:0.2%;
+    transform: translate(-50%,-50%);
+}
+.ButtonClass:hover{
+    position:absolute;
+    background-color:rgb(255, 255, 255);
+    margin:0%;
+    padding: 0.5%;
+}
+.Boards{
+    position:absolute;
+    width:100vh;
+    top:3vh;
+    min-width:400px;
+    left: 3vh; 
+    padding: 4px;
+    border-radius: 30px;
+    background-color: black;       
+}
+.Character{
+    position:absolute;
+    height:70vh;
+    transform:translate(-90%,0);
+    top:20vh;
+    left:95vw;
+}
